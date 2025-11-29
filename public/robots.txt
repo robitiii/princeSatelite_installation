@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://princesatelliteinstallations.co.za/sitemap.xml

@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Premium Silk Blue & Silver Palette */
+    --background: 210 100% 98%;
+    --foreground: 215 35% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 15%;
+
+    /* Premium Blue - Main Brand */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 91% 70%;
+    
+    /* Silver Accent */
+    --secondary: 210 17% 82%;
+    --secondary-foreground: 215 35% 20%;
+    
+    /* Silk Background */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 215 95% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+    
+    /* Premium Gradients */
+    --gradient-silk: linear-gradient(135deg, hsl(217 91% 60% / 0.05) 0%, hsl(210 100% 98%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 91% 70%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(217 91% 60% / 0.03) 0%, hsl(210 100% 98%) 100%);
+    
+    /* Premium Shadows */
+    --shadow-silk: 0 10px 40px -10px hsl(217 91% 60% / 0.15);
+    --shadow-glow: 0 0 50px hsl(217 91% 70% / 0.3);
+    --shadow-card: 0 4px 20px hsl(217 91% 60% / 0.08);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 35% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 35% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 35% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 91% 70%;
+
+    --secondary: 215 30% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 30% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 215 95% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 217 91% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-jakarta;
+  }
+  
+  /* Silk Texture Overlay */
+  .silk-texture {
+    position: relative;
+  }
+  
+  .silk-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-silk);
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  /* Premium Silk Effects */
+  .glass-card {
+    @apply backdrop-blur-sm bg-card/80 border border-border/50;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .silk-shadow {
+    box-shadow: var(--shadow-silk);
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Smooth Animations */
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+  
+  .bounce-transition {
+    transition: var(--transition-bounce);
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    @apply smooth-transition hover:scale-105 hover:-translate-y-1;
+  }
+  
+  .hover-glow {
+    @apply smooth-transition;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+}
